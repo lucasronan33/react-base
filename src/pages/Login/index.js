@@ -4,6 +4,7 @@ import { Title, Paragrafo } from "./styles";
 import { Container } from "../../styles/GlobalStyles";
 import axios from "../../services/axios";
 import { useDispatch } from "react-redux";
+import * as actions from "../../store/modules/example/actions";
 
 export default function Login() {
 
@@ -11,9 +12,7 @@ export default function Login() {
     function handleClick(e) {
         e.preventDefault()
 
-        dispatch({
-            type: ''
-        })
+        dispatch(actions.clicaBotao())
     }
 
     return (

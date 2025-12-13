@@ -3,16 +3,18 @@ import React from "react";
 import { Title, Paragrafo } from "./styles";
 import { Container } from "../../styles/GlobalStyles";
 import axios from "../../services/axios";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
 
-    React.useEffect(() => {
-        async function getData() {
-            const response = await axios.get('/pokemon')
-            console.log(response.data.results)
-        }
-        getData()
-    }, [])
+    const dispatch = useDispatch()
+    function handleClick(e) {
+        e.preventDefault()
+
+        dispatch({
+            type: ''
+        })
+    }
 
     return (
         <Container>
@@ -22,7 +24,7 @@ export default function Login() {
             <Paragrafo>
                 Lorem ipsum dolor
             </Paragrafo>
-            <button>Enviar</button>
+            <button onClick={handleClick}>Enviar</button>
         </Container>
     )
 }

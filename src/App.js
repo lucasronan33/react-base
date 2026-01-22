@@ -6,16 +6,19 @@ import Header from "./components/Header";
 import GlobalStyles from "./styles/GlobalStyles";
 import Routes from "./routes";
 import { Provider } from "react-redux";
-import store from "./store/store";
+import store, { persistor } from "./store/store";
+import { PersistGate } from 'redux-persist/integration/react';
 
 function App() {
   return (
     <Provider store={store}>
-      <Router history={history} >
-        <Header />
-        <Routes />
-        <GlobalStyles />
-      </Router>
+      <PersistGate persistor={persistor}>
+        <Router history={history} >
+          <Header />
+          <Routes />
+          <GlobalStyles />
+        </Router>
+      </PersistGate>
     </Provider>
 
   );
